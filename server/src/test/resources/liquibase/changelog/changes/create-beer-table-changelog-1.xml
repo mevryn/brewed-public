@@ -1,0 +1,104 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+
+    <changeSet id="1" author="mev">
+
+        <createTable tableName="beer">
+            <column name="id" type="UUID"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="bar_code" type="VARCHAR(255)"/>
+            <column name="beer_type_id" type="UUID"/>
+            <column name="price" type="DOUBLE"/>
+            <column name="alcohol_percentage" type="DOUBLE"/>
+            <column name="beer_note_id" type="UUID"/>
+            <column name="brewery_id" type="UUID"/>
+        </createTable>
+
+        <createTable tableName="beer_type">
+            <column name="type" type="VARCHAR(255)"/>
+        </createTable>
+
+
+        <createTable tableName="beer_note">
+            <column name="note" type="VARCHAR(255)"/>
+        </createTable>
+
+        <createTable tableName="brewery">
+            <column name="id" type="UUID"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+
+        <createTable tableName="beer_rating">
+            <column name="id" type="UUID"/>
+            <column name="bitterness" type="DOUBLE"/>
+            <column name="dryness" type="DOUBLE"/>
+            <column name="sour" type="DOUBLE"/>
+            <column name="sweetness" type="DOUBLE"/>
+            <column name="note" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="mev">
+        <addColumn tableName="beer_type">
+            <column name="id" type="UUID"/>
+        </addColumn>
+        <addColumn tableName="beer_note">
+            <column name="id" type="UUID"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="4" author="mev">
+        <createTable tableName="user_identifier">
+            <column name="id" type="UUID"/>
+            <column name="identifier" type="VARCHAR(255)"/>
+        </createTable>
+        <addColumn tableName="beer_rating">
+            <column name="score" type="DOUBLE"/>
+            <column name="user_id" type="UUID"/>
+            <column name="beer_id" type="UUID"/>
+        </addColumn>
+        <dropColumn tableName="beer_rating" columnName="note"/>
+    </changeSet>
+    <changeSet id="5" author="mev">
+        <renameColumn tableName="beer_rating" oldColumnName="user_id" newColumnName="user_identifier_id"
+                      columnDataType="UUID"/>
+    </changeSet>
+    <changeSet id="6" author="mev">
+        <addPrimaryKey tableName="beer_type" columnNames="id"/>
+        <addPrimaryKey tableName="beer_note" columnNames="id"/>
+    </changeSet>
+    <changeSet id="7" author="mev">
+        <addPrimaryKey tableName="beer" columnNames="id"/>
+        <addPrimaryKey tableName="brewery" columnNames="id"/>
+        <addPrimaryKey tableName="beer_rating" columnNames="id"/>
+        <addPrimaryKey tableName="user_identifier" columnNames="id"/>
+    </changeSet>
+    <changeSet id="8" author="mev">
+        <addForeignKeyConstraint baseTableName="beer" baseColumnNames="beer_type_id" constraintName="fk_beer_type_id"
+                                 referencedTableName="beer_type" referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="beer" baseColumnNames="beer_note_id" constraintName="fk_beer_note_id"
+                                 referencedTableName="beer_note" referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="beer" baseColumnNames="brewery_id" constraintName="fk_brewery_id"
+                                 referencedTableName="brewery" referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="beer_rating" baseColumnNames="beer_id"
+                                 constraintName="fk_beer_id"
+                                 referencedTableName="beer" referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="beer_rating" baseColumnNames="user_identifier_id"
+                                 constraintName="fk_user_identifier_id"
+                                 referencedTableName="user_identifier" referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="9" author="mev">
+        <addColumn tableName="beer">
+            <column name="serving_temperature" type="DOUBLE"/>
+            <column name="ibu" type="DOUBLE"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="10" author="mev">
+        <modifyColumn tableName="beer">
+            <column name="ibu" type="INT"/>
+        </modifyColumn>
+    </changeSet>
+</databaseChangeLog>

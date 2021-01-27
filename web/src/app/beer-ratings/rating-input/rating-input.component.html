@@ -1,0 +1,70 @@
+<h1 mat-dialog-title>{{provideTitle()}}</h1>
+<mat-form-field class="rating-form-field">
+  <mat-label>Identyfikator użytkownika</mat-label>
+  <label>
+    <input [(ngModel)]="data.entryData.userIdentifier" matInput type="text">
+  </label>
+  <button (click)="data.entryData.userIdentifier=''"
+          *ngIf="data.entryData.userIdentifier"
+          aria-label="Wyzeruj"
+          mat-button mat-icon-button
+          matSuffix>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<select [(ngModel)]="data.entryData.beer" class="form-control" id="beer"
+        name="beer-select">
+  <option [ngValue]="-1">Wybierz piwo</option>
+  <option *ngFor="let beer of beers" [ngValue]="beer.id">
+    {{beer.name}}
+  </option>
+</select>
+<br>
+<label>Ocena</label>
+<mat-slider
+  [(ngModel)]="data.entryData.score"
+  [displayWith]="formatScoreLabel"
+  max="1"
+  min="0"
+  step="0.2"
+  thumbLabel></mat-slider>
+<label>Gorycz</label>
+<mat-slider
+  [(ngModel)]="data.entryData.bitterness"
+  [displayWith]="formatPercentLabel"
+  max="1"
+  min="0"
+  step="0.01"
+  thumbLabel></mat-slider>
+<label>Jałowość</label>
+<mat-slider
+  [(ngModel)]="data.entryData.dryness"
+  [displayWith]="formatPercentLabel"
+  max="1"
+  min="0"
+  step="0.01"
+  thumbLabel></mat-slider>
+
+<label>Cierpkość</label>
+<mat-slider
+  [(ngModel)]="data.entryData.sour"
+  [displayWith]="formatPercentLabel"
+  max="1"
+  min="0"
+  step="0.01"
+  thumbLabel></mat-slider>
+<label>Słodycz</label>
+<mat-slider
+  [(ngModel)]="data.entryData.sweetness"
+  [displayWith]="formatPercentLabel"
+  max="1"
+  min="0"
+  step="0.01"
+  thumbLabel></mat-slider>
+<div class="actions-container">
+  <div align="end" class="actions" mat-dialog-actions>
+    <button (click)="onNoClick()" mat-raised-button>Zamknij</button>
+    <button (click)="apply()" [disabled]="isInvalidBeerSelected(data.entryData.beer)" mat-raised-button>Zastosuj
+    </button>
+  </div>
+</div>

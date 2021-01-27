@@ -1,0 +1,16 @@
+mat-label {
+  margin-bottom: 2%;
+}
+
+mat-form-field {
+  display: inline;
+}
+
+input {
+  color: darkgray;
+}
+
+mat-label {
+  color: darkgray;
+}
+

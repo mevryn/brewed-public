@@ -1,0 +1,13 @@
+<h3>Importuj piwa z pliku CSV lub JSON</h3>
+<div class="file-name">
+  <div *ngIf="file; else elseBlock">{{file.name}}</div>
+  <ng-template #elseBlock>
+    Wybierz plik
+  </ng-template>
+</div>
+<br>
+<button (click)="fileInput.click()" mat-raised-button>
+  <span>Wybierz plik</span>
+  <input #fileInput (change)="onFileChange($event)" style="display:none;" type="file"/>
+</button>
+<button (click)="onImportClick()" mat-raised-button>Importuj</button>

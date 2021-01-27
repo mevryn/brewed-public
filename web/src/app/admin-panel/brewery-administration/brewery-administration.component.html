@@ -1,0 +1,4 @@
+<div class="brewery-administration">
+  <app-brewery-filter (eventEmitter)="table.applyFilter($event)"></app-brewery-filter>
+  <app-brewery-list #table [displayedColumns]="['name','actions']"></app-brewery-list>
+</div>

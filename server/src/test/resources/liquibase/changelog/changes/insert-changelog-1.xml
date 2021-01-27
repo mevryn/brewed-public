@@ -1,0 +1,27 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+
+    <changeSet id="1" author="mev">
+        <insert tableName="beer_note">
+            <column name="id" value="04965ea3-96c1-43a7-b3fe-27bb0f59765f"/>
+            <column name="note" value="Brak"/>
+        </insert>
+        <insert tableName="beer_type">
+            <column name="id" value="9a268949-3077-4599-a81a-ea2767df17a4"/>
+            <column name="type" value="Brak"/>
+        </insert>
+    </changeSet>
+    <changeSet id="2" author="mev">
+        <addDefaultValue tableName="beer" columnName="ibu" defaultValue="0"/>
+        <addDefaultValue tableName="beer" columnName="serving_temperature" defaultValue="0"/>
+    </changeSet>
+    <changeSet id="3" author="mev">
+        <insert tableName="brewery">
+            <column name="id" value="e96c7de2-d3c7-4121-b14f-f408c5cb2b77"/>
+            <column name="name" value="Brak informacji"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

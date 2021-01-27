@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>{{provideTitle()}}</h1>
+<mat-form-field class="beer-form-field">
+  <mat-label>Nazwa</mat-label>
+  <label>
+    <input [(ngModel)]="data.entryData.name" matInput type="text">
+  </label>
+  <button (click)="data.entryData.name=''" *ngIf="data.entryData.name" aria-label="Wyczyść" mat-button mat-icon-button
+          matSuffix>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<mat-form-field class="beer-form-field">
+  <mat-label>Adres</mat-label>
+  <label>
+    <input [(ngModel)]="data.entryData.address" matInput type="text">
+  </label>
+  <button (click)="data.entryData.address=''"
+          *ngIf="data.entryData.address"
+          aria-label="Wyzeruj"
+          mat-button mat-icon-button
+          matSuffix>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<mat-form-field class="beer-form-field">
+  <mat-label>Opis</mat-label>
+  <label>
+    <input [(ngModel)]="data.entryData.description" matInput type="text">
+  </label>
+  <button (click)="data.entryData.description=''"
+          *ngIf="data.entryData.description"
+          aria-label="Wyzeruj"
+          mat-button mat-icon-button
+          matSuffix>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<div class="actions-container">
+  <div align="end" class="actions" mat-dialog-actions>
+    <button (click)="onNoClick()" mat-raised-button>Zamknij</button>
+    <button (click)="apply()" mat-raised-button>Zastosuj</button>
+  </div>
+</div>

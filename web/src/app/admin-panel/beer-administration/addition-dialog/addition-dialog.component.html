@@ -1,0 +1,106 @@
+<h1 mat-dialog-title>Dodaj piwo</h1>
+<mat-form-field class="beer-form-field">
+  <mat-label>Nazwa</mat-label>
+  <label>
+    <input [(ngModel)]="data.entryData.name"
+           matInput
+           type="text">
+  </label>
+  <button (click)="data.entryData.name=''" *ngIf="data.entryData.name" aria-label="Wyczyść" mat-button mat-icon-button
+          matSuffix>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<mat-form-field class="beer-form-field">
+  <mat-label>Koszt</mat-label>
+  <label>
+    <input [(ngModel)]="data.entryData.price"
+           [options]="{ prefix: 'PLN',align:'left',thousands: '.', decimal: ',', precision: 2 }" currencyMask
+           matInput>
+  </label>
+  <button (click)="data.entryData.price=0"
+          *ngIf="data.entryData.price"
+          aria-label="Wyzeruj"
+          mat-button mat-icon-button
+          matSuffix>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<mat-form-field class="beer-form-field">
+  <mat-label>Kod kreskowy piwa</mat-label>
+  <label>
+    <input [(ngModel)]="data.entryData.barCode" matInput type="text">
+  </label>
+</mat-form-field>
+<mat-form-field class="beer-form-field">
+  <mat-label>Zawartośc alkoholu</mat-label>
+  <label>
+    <input [(ngModel)]="data.entryData.alcoholPercentage" [options]="{prefix:'',suffix:'%',align:'left', precision:1}"
+           matInput
+           percentageMask>
+  </label>
+  <button (click)="data.entryData.alcoholPercentage=0"
+          *ngIf="data.entryData.alcoholPercentage"
+          aria-label="Wyzeruj"
+          mat-button mat-icon-button
+          matSuffix>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<mat-form-field class="beer-form-field">
+  <mat-label>Temperatura podawania</mat-label>
+  <label>
+    <input [(ngModel)]="data.entryData.servingTemperature"
+           [options]="{allowNegative:true,prefix:'',suffix:'°C',align:'left',
+    precision:1}"
+           currencyMask matInput>
+  </label>
+  <button (click)="data.entryData.servingTemperature=0"
+          *ngIf="data.entryData.servingTemperature"
+          aria-label="Wyzeruj"
+          mat-button mat-icon-button
+          matSuffix>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<mat-form-field class="beer-form-field">
+  <mat-label>Ibu</mat-label>
+  <label>
+    <input [(ngModel)]="data.entryData.ibu" matInput type="number">
+  </label>
+  <button (click)="data.entryData.ibu=0"
+          *ngIf="data.entryData.ibu"
+          aria-label="Wyzeruj"
+          mat-button mat-icon-button
+          matSuffix>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
+<label for="brewery">Browar</label>
+<select [(ngModel)]="data.entryData.brewery" class="form-control" id="brewery"
+        name="brewery-select">
+  <option *ngFor="let brewery of breweries" [ngValue]="brewery">
+    {{brewery.name}}
+  </option>
+</select>
+<label for="type">Typ</label>
+<select [(ngModel)]="data.entryData.beerType" class="form-control" id="type"
+        name="type-select">
+  <option *ngFor="let type of beerTypes" [ngValue]="type">
+    {{type.type}}
+  </option>
+</select>
+<label for="note">Nuta</label>
+<select [(ngModel)]="data.entryData.beerNote" class="form-control" id="note"
+        name="note-select">
+  <option *ngFor="let note of beerNotes" [ngValue]="note">
+    {{note.note}}
+  </option>
+</select>
+<div class="actions-container">
+  <div align="end" class="actions" mat-dialog-actions>
+    <button (click)="onNoClick()" mat-raised-button>Zamknij</button>
+    <button (click)="add()" mat-raised-button>Dodaj</button>
+  </div>
+</div>

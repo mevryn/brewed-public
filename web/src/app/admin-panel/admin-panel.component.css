@@ -1,0 +1,17 @@
+mat-tab-group {
+  box-shadow: 0 0 1em grey;
+}
+
+.tab-content {
+  margin-top: 2%;
+}
+
+button {
+  margin-bottom: 2%;
+  margin-left: 2%;
+}
+
+h3 {
+  margin-bottom: 2%;
+  margin-left: 2%;
+}

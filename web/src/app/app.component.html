@@ -1,0 +1,15 @@
+<div *ngIf="loading" class="loading-container flex-content-center">
+  <mat-progress-spinner
+    color="primary"
+    mode="indeterminate">
+  </mat-progress-spinner>
+</div>
+
+<app-header></app-header>
+<app-container>
+  <router-outlet></router-outlet>
+</app-container>
+<div class="d-flex justify-content-center">
+  <a [routerLink]="'/privacy'">Polityka prywatności</a>
+</div>
+

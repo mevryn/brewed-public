@@ -1,0 +1,15 @@
+app-rating-filter {
+  width: 100%;
+}
+
+input {
+  margin: 5%;
+}
+
+mat-expansion-panel {
+  border-radius: 0;
+}
+
+mat-form-field {
+  margin: 0 2% 0 2%;
+}

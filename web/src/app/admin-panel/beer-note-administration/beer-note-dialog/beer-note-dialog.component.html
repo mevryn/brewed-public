@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>{{provideTitle()}}</h1>
+<mat-form-field class="beer-form-field">
+  <mat-label>Nuta</mat-label>
+  <label>
+    <input [(ngModel)]="data.entryData.note" matInput type="text">
+  </label>
+  <button (click)="data.entryData.note=''" *ngIf="data.entryData.note" aria-label="Wyczyść" mat-button mat-icon-button
+          matSuffix>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<div class="actions-container">
+  <div align="end" class="actions" mat-dialog-actions>
+    <button (click)="onNoClick()" mat-raised-button>Zamknij</button>
+    <button (click)="apply()" mat-raised-button>Zastosuj</button>
+  </div>
+</div>

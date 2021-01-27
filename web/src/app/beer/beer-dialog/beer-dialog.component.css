@@ -1,0 +1,12 @@
+
+img {
+  height: 100%;
+  width: 25%;
+  background-color: black;
+  box-shadow: 0 0 1em grey;
+}
+
+
+#beer-photo {
+  margin: 2%;
+}

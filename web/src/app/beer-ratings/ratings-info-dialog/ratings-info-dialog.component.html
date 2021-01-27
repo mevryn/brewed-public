@@ -1,0 +1,13 @@
+<h2 mat-panel-title> Ocena od:
+  <b>{{data.entryData.userIdentifier}}</b> dla piwa o nazwie: <b>{{data.entryData.beerName}}</b></h2>
+<br>
+<h3>Ogólna ocena: {{beerRatingDto.score * 5}}</h3>
+<br>
+<p>Gorycz: {{beerRatingDto.bitterness | percent}}</p>
+<br>
+<p>Jałowość (brak słodyczy): {{beerRatingDto.dryness | percent}}</p>
+<br>
+<p>Cierpkość / Kwaśność: {{beerRatingDto.sour | percent}}</p>
+<br>
+<p>Słodycz: {{beerRatingDto.sweetness | percent}}</p>
+<br>

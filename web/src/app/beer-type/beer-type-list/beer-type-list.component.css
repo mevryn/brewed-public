@@ -1,0 +1,12 @@
+table {
+  width: 100%;
+}
+
+.mat-row:hover {
+    background-color: darkgrey;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #cc720c;
+}

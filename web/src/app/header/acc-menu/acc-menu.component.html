@@ -1,0 +1,13 @@
+<button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" mat-icon-button>
+  <mat-icon>account_circle</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button (click)="onLoginClick()" *ngIf="!appService.authenticated" mat-menu-item>
+    <mat-icon>login</mat-icon>
+    <span>Zaloguj</span>
+  </button>
+  <button (click)="onLogoutClick()" *ngIf="appService.authenticated" mat-menu-item>
+    <mat-icon>login</mat-icon>
+    <span>Wyloguj</span>
+  </button>
+</mat-menu>

@@ -1,0 +1,15 @@
+app-rating-filter {
+  width: 100%;
+}
+
+mat-expansion-panel {
+  width: 100%;
+}
+
+select {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}

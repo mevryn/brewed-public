@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "predict.path",
+      "type": "java.lang.String",
+      "description": "Description for predict.path."
+    }
+  ]
+}

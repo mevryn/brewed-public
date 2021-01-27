@@ -1,0 +1,47 @@
+.form-group {
+  padding-bottom: 2%;
+}
+
+table {
+  width: 90%;
+}
+
+.mat-row:hover {
+  background-color: #f28e1c;
+  cursor: pointer;
+}
+
+img {
+  height: 200px;
+  width: 150px;
+  background-color: black;
+  box-shadow: 0 0 1em grey;
+}
+
+.control {
+  width: 50%;
+  float: left;
+  display: inline-block;
+}
+
+.form-group {
+  margin-bottom: 5px;
+  width: 100%;
+  float: left;
+}
+
+button {
+  margin: 5px;
+  display: inline-block;
+}
+
+.hint {
+  position: absolute;
+  left: 5px;
+  right: auto;
+  bottom: -15px;
+  font-size: 14px;
+  line-height: 14px;
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  color: grey;
+}

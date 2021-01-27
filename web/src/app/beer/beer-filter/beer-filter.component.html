@@ -1,0 +1,30 @@
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon>filter_list</mat-icon>
+    </mat-panel-title>
+    <mat-panel-description>
+      Filter
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <form [formGroup]="beerForm">
+    <mat-form-field class="form-input-fields">
+      <mat-label>Nazwa piwa</mat-label>
+      <label>
+        <input (keyup.enter)="onSearchClick()" formControlName="name" matInput placeholder="Nazwa piwa">
+      </label>
+    </mat-form-field>
+    <mat-form-field class="form-input-fields">
+      <mat-label>Nazwa browaru</mat-label>
+      <label>
+        <input (keyup.enter)="onSearchClick()" formControlName="breweryName" matInput placeholder="Nazwa browaru">
+      </label>
+    </mat-form-field>
+    <mat-form-field class="form-input-fields">
+      <mat-label>Kod kreskowy</mat-label>
+      <label>
+        <input (keyup.enter)="onSearchClick()" formControlName="barCode" matInput placeholder="Kod kreskowy">
+      </label>
+    </mat-form-field>
+  </form>
+</mat-expansion-panel>

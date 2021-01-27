@@ -1,0 +1,17 @@
+<div class="predict body">
+  <h1>Wybierz zdjęcie do rozpoznania</h1>
+  <div class="form-group">
+    <div class="control">
+      <br>
+      <button mat-raised-button (click)="fileInput.click()">
+        <span>Wybierz plik</span>
+        <input #fileInput type="file" (change)="onFileChange($event)" style="display:none;"/>
+      </button>
+      <br>
+      <button mat-raised-button (click)="onPredictClick()">Rozpoznaj</button>
+    </div>
+    <img [src]="url" alt="beer-photo">
+  </div>
+  <app-beer-table #table>
+  </app-beer-table>
+</div>

@@ -1,0 +1,44 @@
+<table [dataSource]="dataSource" class="mat-elevation-z8" mat-table
+       multiTemplateDataRows>
+  <ng-container matColumnDef="name">
+    <th *matHeaderCellDef id="nameCol" mat-header-cell> Nazwa</th>
+    <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="barCode">
+    <th *matHeaderCellDef id="barCodeCol" mat-header-cell> Kod kreskowy</th>
+    <td *matCellDef="let element" mat-cell> {{element.barCode}} </td>
+  </ng-container>
+  <ng-container matColumnDef="breweryName">
+    <th *matHeaderCellDef id="breweryNameCol" mat-header-cell> Nazwa browaru</th>
+    <td *matCellDef="let element" mat-cell> {{element.brewery.name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th *matHeaderCellDef id="actionsCol" mat-header-cell style="padding-right: 0">
+      <button (click)="onAddClick()" mat-icon-button style="float: right">
+        <mat-icon>add</mat-icon>
+      </button>
+    </th>
+    <td *matCellDef="let element" mat-cell style="padding-right: 0">
+      <button (click)="onInfoClick(element)" mat-icon-button style="float: right">
+        <mat-icon>info</mat-icon>
+      </button>
+      <button (click)="onRemoveClick(element)" mat-icon-button style="float: right">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button (click)="onEditClick(element)" mat-icon-button style="float: right">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+  <tr *matRowDef="let row;
+  columns:
+  displayedColumns;"
+      mat-row></tr>
+</table>
+<mat-paginator #paginator [length]="100"
+               [pageSizeOptions]="[5, 10]"
+               [pageSize]="10">
+</mat-paginator>
+
+

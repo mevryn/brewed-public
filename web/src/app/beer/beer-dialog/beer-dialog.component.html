@@ -1,0 +1,33 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Piwo</mat-card-title>
+    </mat-card-header>
+    <p>Nazwa: {{data.entryData.name}}</p>
+    <br>
+    <p>Kod kreskowy: {{data.entryData.barCode}}</p>
+    <br>
+    <p>Typ: {{type}}</p>
+    <br>
+    <p>Nuta: {{note}}</p>
+    <br>
+      <p>IBU: {{data.entryData.ibu}}</p>
+    <br>
+      <p>Cena: {{data.entryData.price | currency:'PLN'}}</p>
+    <br>
+      <p>Zawartość alkoholu: {{data.entryData.alcoholPercentage | percent:'1.1-2'}}</p>
+    <br>
+      <p>Temperatura podawania: {{data.entryData.servingTemperature}} °C</p>
+  </mat-card>
+  <br>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Browar</mat-card-title>
+    </mat-card-header>
+    <p>Nazwa: {{brewery.name}}</p>
+    <br>
+    <p>Adres: {{brewery.address}}</p>
+    <br>
+    <p>Opis: {{brewery.description}}</p>
+  </mat-card>
+</div>
